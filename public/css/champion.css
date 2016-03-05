@@ -1,0 +1,154 @@
+body { padding-bottom: 20px; }
+
+a:link { text-decoration: none; }
+
+.header,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.champion {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.name {
+  font-size: 45px;
+  text-align: center;
+}
+.title {
+  font-size: 20px;
+  text-align: center;
+}
+.faction-container {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.portrait {
+  height: 120px;
+  width: 120px;
+}
+.faction {
+  display: flex;
+  justify-content: space-around;
+}
+.crest {
+  height: 140px;
+  width: 140px;
+}
+
+.bio .panel-body { text-align: justify; }
+
+/* Hexagon styling */
+.list-container {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.list-item {
+  display: flex;
+  padding: 10px;
+}
+
+.ui-autocomplete {
+  max-height: 165px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Search field*/
+.search {
+  font-size: 16px;
+  margin-top: 10px;
+  position: relative;
+}
+.search input {
+  background: #fcfcfc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+  color: #999;
+  height: 32px;
+  text-indent: 10px;
+  width: 250px;
+}
+.search span {
+  color: #aaa;
+  position: absolute;
+  right: 12px;
+  top: 9px;
+}
+
+/* Responsive: Landscape tablets and up */
+@media screen and (min-device-width: 768px) {
+  .container { max-width: 730px; }
+
+  .header,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  .champion {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  .name-container {
+    align-self: flex-start;
+    padding-left: 15px;
+    width: 50%;
+  }
+  .faction-container {
+    margin-top: 0;
+    text-align: center;
+    width: 30%;
+  }
+  .name {
+    font-size: 50px;
+    text-align: left;
+  }
+  .title {
+    font-size: 25px;
+    text-align: left;
+  }
+  .search {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-device-width: 768px) {
+  .grid-item { width: 100%; }
+}

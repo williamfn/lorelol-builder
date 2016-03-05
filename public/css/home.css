@@ -1,0 +1,88 @@
+/*@import url(https://fonts.googleapis.com/css?family=Bad+Script);*/
+/*@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch:700);*/
+@import url(https://fonts.googleapis.com/css?family=Chelsea+Market);
+
+html, body {
+  height: 100%;
+  padding: 0;
+}
+
+/* Center content */
+.container-fluid {
+  display: table;
+  height: 80%;
+  padding: 0;
+  width: 100%;
+}
+.row-fluid {
+  display:table-cell;
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* Content */
+.center-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin:0 auto;
+  max-width: 730px;
+}
+.logo {
+  margin: 0 20px 10px;
+}
+.slogan {
+  font-size: 16px;
+  margin: 10px;
+  text-align: center;
+  width: 100%;
+}
+.slogan span {
+  /*font-family: 'Bad Script', cursive;*/
+  /*font-family: 'Cabin Sketch', cursive;*/
+  font-family: 'Chelsea Market', cursive;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Search field*/
+.search {
+  font-size: 16px;
+  margin: 10px;
+  position: relative;
+}
+.search input {
+  background: #fcfcfc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+  color: #999;
+  height: 32px;
+  text-indent: 10px;
+  width: 250px;
+}
+.search span {
+  color: #aaa;
+  position: absolute;
+  right: 12px;
+  top: 9px;
+}
+
+/* Simple centering */
+.simple-center-content {
+  margin: 25% auto 0;
+  max-width: 730px;
+  padding: 0 20px;
+}
+
+@media screen and (min-device-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+  .search input {
+    width: 400px;
+  }
+  .slogan span {
+    /*font-size: 30px;*/
+  }
+}

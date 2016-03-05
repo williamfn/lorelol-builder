@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoreLoL.com</title>
+  {% include 'home/top.twig' %}
+</head>
+
+<body>
+{% include 'topbar.twig' %}
+
+<div class="container-fluid">
+    <div class="row-fluid">
+      <div class="center-content">
+        <div class="logo">
+          <img class="img-responsive" src="/img/logo100.png" alt="" />
+        </div>
+        <div class="slogan">
+          <span>Your definitive League of Legends champion lore reference!</span>
+        </div>
+        <div class="search">
+          <span class="glyphicon glyphicon-search"></span>
+          <input id="search" placeholder="{{ trans('system.search_term') }}">
+        </div>
+      </div>
+    </div>
+</div>
+
+<input type="hidden" id="region" value="{{ region }}">
+</body>
+
+{% include 'home/footer.twig' %}
+</html>

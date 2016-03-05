@@ -1,0 +1,21 @@
+/* Topbar */
+.topbar {
+  border-bottom: 1px solid #f5f5f5;
+  color: #ffd100;
+  text-align: right;
+}
+.mail, .language {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 25px;
+}
+.mail {
+  background: no-repeat url('../img/mail_icon.png') left 30%;
+  margin-right: 20px;
+  padding-left: 20px;
+}
+.language {
+  background: no-repeat url('../img/arrow_down.png') right center;
+  padding-right: 20px;
+  margin-right: 10px;
+}

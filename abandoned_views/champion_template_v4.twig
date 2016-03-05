@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ champion.name }}</title>
+  {% include 'include_top.twig' %}
+</head>
+<body>
+<div id="background" style="background-image: url('{{ champion.background }}')"></div>
+{% include 'topbar.twig' %}
+{% include 'header.twig' %}
+
+<div class="champion">
+  <div class="portrait"><img src="{{ system.portrait ~ champion.image.full }}" alt=""></div>
+  <div class="champion-name">
+    <div class="name">{{ champion.name }}</div>
+    <div class="title">{{ champion.title }}</div>
+  </div>
+</div>
+
+<div class="container-info">
+  <div class="bio card">
+    <div class="card-header"><p>Biografia</p></div>
+    <div class="card-content">{{ champion.bio }}</div>
+  </div>
+
+  <div class="card faction">
+    <div class="card-header"><p>Facção</p></div>
+    <div class="card-content">{{ champion.partype }}</div>
+  </div>
+
+  <div class="card friends">
+    <div class="card-header"><p>Amigos</p></div>
+    <div class="card-content">{{ champion.key }}</div>
+  </div>
+
+  <div class="card foes">
+    <div class="card-header"><p>Rivais</p></div>
+    <div class="card-content">
+      <div class="hexagon">
+        <div class="hexTop"></div>
+        <div class="hexBottom"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card trivia">
+    <div class="card-header"><p>Curiosidades</p></div>
+    <div class="card-content">{{ champion.blurb }}</div>
+  </div>
+</div>
+
+</body>
+</html>

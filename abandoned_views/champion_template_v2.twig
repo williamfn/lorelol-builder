@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ champion.name }}</title>
+  {% include 'include_top.twig' %}
+</head>
+<body>
+  <div id="background" style="background-image: url('{{ champion.background }}')"></div>
+  {% include 'topbar.twig' %}
+  {% include 'header.twig' %}
+  <div class="container">
+    <div class="content">
+      <div class="champion">
+        <div class="name"></div>
+        <div class="title"></div>
+      </div>
+      <div class="bio"></div>
+      <div class="faction"></div>
+      <div class="friends"></div>
+      <div class="foes">
+        <div class="hexagon">
+          <div class="hexTop"></div>
+          <div class="hexBottom"></div>
+        </div>
+      </div>
+      <div class="trivia"></div>
+    </div>
+  </div>
+</body>
+</html>

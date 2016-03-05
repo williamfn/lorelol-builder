@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ champion.name }}</title>
+  {% include 'champion/top.twig' %}
+</head>
+
+<body>
+{% include 'topbar.twig' %}
+
+<div class="container">
+  {% include 'champion/header.twig' %}
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="champion panel panel-default">
+        <div><img class="portrait" src="{{ champion.portrait }}" alt=""></div>
+        <div class="name-container">
+          <div class="name">{{ champion.name }}</div>
+          <div class="title">{{ champion.title }}</div>
+        </div>
+        <div class="faction-container">
+          <div class="faction">{{ champion.faction }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid row">
+    <div class="col-sm-6 grid-item">
+      <div class="bio panel panel-default">
+        <div class="panel-heading">{{ trans('champion.bio') }}</div>
+        <div class="panel-body">
+          {{ champion.lore | raw }}
+        </div>
+      </div>
+    </div>
+
+    {% if champion.F is not empty %}
+      <div class="col-sm-6 grid-item">
+        <div class="friends panel panel-default">
+          <div class="panel-heading">{{ trans('champion.friends') }}</div>
+          <div class="panel-body">
+            <ul class="list-container">
+              {% for friend in champion.F %}
+                <li class="list-item">
+                  <a href="{{ friend.link }}">
+                    <div class="hexagon" style="background-image: url('{{ friend.url }}')">
+                      <div class="hexTop"></div>
+                      <div class="hexBottom"></div>
+                    </div>
+                    <div class="hexagon-name">{{ friend.name }}</div>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if champion.R is not empty %}
+      <div class="col-sm-6 grid-item">
+        <div class="panel panel-default rivals">
+          <div class="panel-heading">{{ trans('champion.rivals') }}</div>
+          <div class="panel-body">
+            <ul class="list-container">
+              {% for rival in champion.R %}
+                <li class="list-item">
+                  <a href="{{ rival.link }}">
+                    <div class="hexagon" style="background-image: url('{{ rival.url }}')">
+                      <div class="hexTop"></div>
+                      <div class="hexBottom"></div>
+                    </div>
+                    <div class="hexagon-name">{{ rival.name }}</div>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="col-sm-6 grid-item">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{ champion.faction }}</div>
+        <div class="panel-body">
+          <div class="faction">
+            {%  for faction in champion.factions %}
+              <img class="crest" src="/img/crest/{{ faction.id }}.png" alt="{{ faction.name }}" title="{{ faction.name }}">
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="splash panel panel-default">
+        <div class="panel-heading">{{ trans('champion.splash') }}</div>
+        <div class="panel-body"><img
+            class="img-responsive" src="{{ champion.splash }}" alt="{{ champion.name }}" title="{{ champion.name }}"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<input type="hidden" id="region" value="{{ champion.region }}">
+</body>
+
+{% include 'champion/footer.twig' %}
+</html>

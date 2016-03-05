@@ -1,0 +1,35 @@
+/* Header */
+.header {
+  background: url('../public/img/logo80_noborder.png') no-repeat;
+  height: 90px;
+  margin: 35px auto;
+  width: 565px;
+}
+
+/* Container */
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
+}
+
+/* Content */
+.champion {
+  color: white;
+  margin: 5px;
+  padding: 5px;
+}
+.champion .name {
+  font-size: 50px;
+}
+.champion .title {
+  font-size: 20px;
+}
+
+.bio {
+  background-color: #99cb84;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}

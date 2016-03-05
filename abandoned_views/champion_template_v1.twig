@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html style="background: black url('{{ champion.background }}') no-repeat 0 160px; background-size: cover" >
+<head>
+  <title>{{ champion.name }}</title>
+  <link href="css/champion_v1.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="container">
+    {% include 'header.twig' %}
+    <div class="content">
+      <div class="champion">
+        <div class="name">{{ champion.name }}</div>
+        <div class="title">{{ champion.title }}</div>
+      <div class="bio">{{ champion.bio|raw }}</div>
+      <div class="faction"></div>
+      <div class="friends"></div>
+      <div class="foes"></div>
+      <div class="trivia"></div>
+    </div>
+  </div>
+</body>
+</html>
