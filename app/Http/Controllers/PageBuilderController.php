@@ -23,4 +23,10 @@ class PageBuilderController extends Controller
         App::setLocale($region);
         $this->pageBuilderService->createChampionPages($region);
     }
+
+    public function createHomePages($region)
+    {
+        App::setLocale($region);
+        $this->pageBuilderService->createHomePages($region);
+    }
 }

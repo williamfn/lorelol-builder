@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de serviços disponíveis</title>
+</head>
+
+<body>
+  <h1>Serviços disponíveis:</h1><br/><br/>
+
+  Inserir nova versão de dados da API da Riot (database):<br/>
+  {% for region, name in regions %}
+    <a href="/updateallchampions/{{ region }}">{{ name }}</a><br/>
+  {% endfor %}
+  <br/>
+
+  Atualizar eventos especiais (não funcionando)<br/>
+  {% for region, name in regions %}
+    /specialevents/{{ region }} - {{ name }}<br/>
+  {% endfor %}
+  <br/>
+
+  Criar as páginas de campeões: <br/>
+  {% for region, name in regions %}
+    <a href="/createchampionpages/{{ region }}">{{ name }}</a><br/>
+  {% endfor %}
+  <br/>
+
+  Criar as homes: <br/>
+  {% for region, name in regions %}
+    <a href="/createhomepages/{{ region }}">{{ name }}</a><br/>
+  {% endfor %}
+  <br/>
+
+  Exibir página de campeão (de acordo com o id - não funcionando):<br/>
+  /template/{champId}/{region}<br/>
+  <br/>
+
+</body>
+</html>

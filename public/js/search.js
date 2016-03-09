@@ -15,7 +15,7 @@ function initSearch() {
         source: champion_data,
         minLength: 2,
         select: function (event, ui) {
-          window.location = '/template/'+ui.item.value+'/'+region;
+          window.location = '/champion/'+ui.item.value;
           event.preventDefault();
         },
         maxHeight: 300

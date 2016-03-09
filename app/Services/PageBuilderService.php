@@ -3,6 +3,7 @@
 use App\Models\Champion;
 use App\Models\ChampionFaction;
 use App\Models\ChampionRelation;
+use Illuminate\Support\Facades\Lang;
 use TwigBridge\Facade\Twig;
 
 class PageBuilderService
@@ -17,7 +18,7 @@ class PageBuilderService
 
         foreach ($relations as $relation) {
             $relationData = [
-                'link' => '/template/'.$relation->relation_id.'/'.$region,
+                'link' => '/champion/'.strtolower($relation->champion_key),
                 'url' => config('riot.image.portrait').$relation->champion_key.'.png',
                 'name' => $relation->champion_key,
             ];
@@ -31,26 +32,72 @@ class PageBuilderService
 
         $champion['region'] = $region;
 
-        return Twig::render('champion/template', ['champion' => $champion]);
+        return Twig::render(
+            'champion/template',
+            ['champion' => $champion, 'regions' => Lang::get('system.language_names')]
+        );
     }
 
     public function createChampionPages($region)
     {
-        // Source temporário para testes
-        $data = json_decode(file_get_contents(storage_path('zyra.json')), true);
+        ob_implicit_flush(true);
+        ob_end_flush();
 
-        $pagesDirectory = storage_path('pages/'.config('riot.version.actual_patch'));
-
+        $pagesDirectory = storage_path('pages/'.config('riot.version.actual_patch').'/'.$region);
         if (!file_exists($pagesDirectory)) {
-            mkdir($pagesDirectory, 0777, true);
+            mkdir($pagesDirectory, 0775, true);
         }
 
-        foreach ($data as $champion) {
-            $page = Twig::render('champion_template', ['champion' => $champion]);
+        echo 'Getting all champ\'s data...<br/>';
+        $champions = Champion::where(
+            ['region' => $region, 'version' => config('riot.version.actual_patch')]
+        )->get()->toArray();
 
-            $file = fopen($pagesDirectory.'/'.strtolower($champion['id']).'.html', 'w+');
+        foreach ($champions as $champion) {
+            echo 'Processing '.$champion['name'].'...';
+            $relations = ChampionRelation::where('champion_id', $champion['id'])->orderBy('champion_key')->get();
+
+            foreach ($relations as $relation) {
+                $relationData = [
+                    'link' => '/champion/'.strtolower($relation->champion_key),
+                    'url' => config('riot.image.portrait').$relation->champion_key.'.png',
+                    'name' => $relation->champion_key,
+                ];
+                $champion[$relation->relation_type][] = $relationData;
+            }
+
+            $champion['factions'] = ChampionFaction::getFactionByChampion($champion['id'], $region);
+
+            $champion['portrait'] = config('riot.image.portrait').$champion['key'].'.png';
+            $champion['splash'] = config('riot.image.splash').$champion['key'].'_0.jpg';
+
+            $champion['region'] = $region;
+
+            echo 'Creating champion HTML file...<br/>';
+            $page = Twig::render(
+                'champion/template',
+                ['champion' => $champion, 'regions' => Lang::get('system.language_names')]
+            );
+            $file = fopen($pagesDirectory.'/'.strtolower($champion['key']).'.html', 'w+');
             fwrite($file, $page);
             fclose($file);
         }
+
+        echo 'Finished processing '.count($champions).' champions';
+    }
+
+    public function createHomePages($region)
+    {
+        $homeDirectory = storage_path('pages/'.config('riot.version.actual_patch').'/'.$region);
+        if (!file_exists($homeDirectory)) {
+            mkdir($homeDirectory, 0775, true);
+        }
+
+        $page = Twig::render('home/home', ['region' => $region, 'regions' => Lang::get('system.language_names')]);
+        $file = fopen($homeDirectory.'/home.html', 'w+');
+        fwrite($file, $page);
+        fclose($file);
+
+        echo 'Finished processing home page for language: '.$region;
     }
 }

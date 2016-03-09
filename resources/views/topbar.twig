@@ -1,4 +1,10 @@
 <div class="topbar">
-  <span class="mail">{{ trans('system.feedback') }}</span>
-  <span class="language">{{ trans('system.language_names.' ~ champion.region) }}</span>
+  <div class="feedback">{{ trans('system.feedback') }}</div>
+  <div class="language">
+      <select id="language">
+        {% for region, name in regions %}
+          <option value="{{ region }}">{{ name }}</option>
+        {% endfor %}
+      </select>
+  </div>
 </div>

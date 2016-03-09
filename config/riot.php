@@ -1,6 +1,6 @@
 <?php
 
-$actualPatch = '6.4.2';
+$actualPatch = '6.5.1';
 $cdnVersion = '1.1.9';
 $apiStaticDataVersion = 'v1.2';
 

@@ -25,7 +25,7 @@ class DataFetchService
             echo 'Processing '.$champion['name'].'...<br/>';
             Champion::create($champion);
 
-            $championJson = ['label' => $champion['name'], 'value' => strtolower($champion['id'])];
+            $championJson = ['label' => $champion['name'], 'value' => strtolower($champion['key'])];
             $toJsonFile[] = $championJson;
         }
 

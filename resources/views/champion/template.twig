@@ -85,7 +85,7 @@
 
     <div class="col-sm-6 grid-item">
       <div class="panel panel-default">
-        <div class="panel-heading">{{ champion.faction }}</div>
+        <div class="panel-heading">{{ trans('champion.faction') }}</div>
         <div class="panel-body">
           <div class="faction">
             {%  for faction in champion.factions %}
@@ -111,5 +111,6 @@
 <input type="hidden" id="region" value="{{ champion.region }}">
 </body>
 
+{#% include 'analytics.twig' %#}
 {% include 'champion/footer.twig' %}
 </html>
