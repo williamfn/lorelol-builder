@@ -93,7 +93,7 @@ class PageBuilderService
             mkdir($homeDirectory, 0775, true);
         }
 
-        $page = Twig::render('home/home', ['region' => $region, 'regions' => Lang::get('system.language_names')]);
+        $page = Twig::render('home/template', ['region' => $region, 'regions' => Lang::get('system.language_names')]);
         $file = fopen($homeDirectory.'/home.html', 'w+');
         fwrite($file, $page);
         fclose($file);

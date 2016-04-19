@@ -14,7 +14,7 @@ a:link { text-decoration: none; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20px 0;
+  margin: 15px 0 20px;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -49,6 +49,7 @@ a:link { text-decoration: none; }
   margin-top: 10px;
 }
 .portrait {
+  border-radius: 10px;
   height: 120px;
   width: 120px;
 }
@@ -106,6 +107,10 @@ a:link { text-decoration: none; }
   top: 9px;
 }
 
+.ui-widget-overlay {
+  background: #666666 50% 50% repeat;
+}
+
 /* Responsive: Landscape tablets and up */
 @media screen and (min-device-width: 768px) {
   .container { max-width: 730px; }
@@ -119,7 +124,6 @@ a:link { text-decoration: none; }
   .header {
     justify-content: space-between;
     margin-bottom: 30px;
-    margin-top: 30px;
   }
   .champion {
     flex-direction: row;
