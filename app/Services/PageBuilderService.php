@@ -34,7 +34,12 @@ class PageBuilderService
 
         return Twig::render(
             'champion/template',
-            ['champion' => $champion, 'regions' => Lang::get('system.language_names')]
+            [
+                'region' => $region,
+                'champion' => $champion,
+                'regions' => Lang::get('system.language_names'),
+                'links' => config('settings.links'),
+            ]
         );
     }
 
@@ -76,7 +81,12 @@ class PageBuilderService
             echo 'Creating champion HTML file...<br/>';
             $page = Twig::render(
                 'champion/template',
-                ['champion' => $champion, 'regions' => Lang::get('system.language_names')]
+                [
+                    'region' => $region,
+                    'champion' => $champion,
+                    'regions' => Lang::get('system.language_names'),
+                    'links' => config('settings.links'),
+                ]
             );
             $file = fopen($pagesDirectory.'/'.strtolower($champion['key']).'.html', 'w+');
             fwrite($file, $page);
@@ -93,7 +103,14 @@ class PageBuilderService
             mkdir($homeDirectory, 0775, true);
         }
 
-        $page = Twig::render('home/template', ['region' => $region, 'regions' => Lang::get('system.language_names')]);
+        $page = Twig::render(
+            'home/template',
+            [
+                'region' => $region,
+                'regions' => Lang::get('system.language_names'),
+                'links' => config('settings.links'),
+            ]
+        );
         $file = fopen($homeDirectory.'/home.html', 'w+');
         fwrite($file, $page);
         fclose($file);

@@ -1,7 +1,8 @@
 $(document).ready(function() {
-  setLanguageMenu();
+  setMenu();
   initSearch();
   reorderPanels();
+  bindLanguages();
 });
 
 $(window).on('resize orientationChange', function(event) {

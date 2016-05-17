@@ -5,5 +5,5 @@ Homestead.json
 .env
 composer.lock
 .idea
-storage/pages
+storage/pages/*
 public/json

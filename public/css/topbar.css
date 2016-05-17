@@ -3,8 +3,7 @@
   background-color: #f9f9f9;
   border-bottom: 1px solid #f5f5f5;
   color: #888;
-  height: 40px;
-  text-align: right;
+  height: 45px;
 }
 .feedback {
   background: no-repeat url('../img/mail_icon.png') left 30%;
@@ -22,7 +21,6 @@
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 3px;
-  display: none;
   margin: 0;
   overflow: hidden;
   padding: 0;

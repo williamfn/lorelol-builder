@@ -1,16 +1,3 @@
-function setLanguageMenu() {
-  var region = $('#region').val();
-  var language = $('#language');
-  var div = $('.language');
-
-  language.val(region);
-  language.on('change', function () {
-    changeLanguage($(this).val());
-  });
-
-  div.css('display', 'block');
-}
-
 function changeLanguage(region) {
   $.ajax({
     type: "POST",
@@ -21,5 +8,15 @@ function changeLanguage(region) {
     success: function() {
       location.reload();
     },
+  });
+}
+
+function setMenu() {
+  $('#dl-menu').dlmenu();
+}
+
+function bindLanguages(){
+  $('.dl-submenu li:not(:first-child) a').click(function(){
+    changeLanguage($(this).attr('id'));
   });
 }

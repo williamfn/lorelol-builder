@@ -1,4 +1,5 @@
 $(document).ready(function() {
-  setLanguageMenu();
+  setMenu();
   initSearch();
+  bindLanguages();
 });

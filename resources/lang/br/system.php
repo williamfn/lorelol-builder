@@ -2,9 +2,9 @@
 return [
     'language_names' => [
         'br' => 'Português',
-        'de' => 'Alemão',
+//        'de' => 'Alemão',
         'na' => 'Inglês',
     ],
     'search_term' => 'Buscar campeões',
-    'feedback' => 'Feedback'
+    'language' => 'Idioma',
 ];

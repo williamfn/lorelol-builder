@@ -58,6 +58,7 @@ a:link { text-decoration: none; }
   justify-content: space-around;
 }
 .crest {
+  border-radius: 8px;
   height: 140px;
   width: 140px;
 }

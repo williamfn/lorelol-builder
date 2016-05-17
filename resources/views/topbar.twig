@@ -1,10 +1,26 @@
 <div class="topbar">
-  <div class="feedback">{{ trans('system.feedback') }}</div>
-  <div class="language">
-      <select id="language">
-        {% for region, name in regions %}
-          <option value="{{ region }}">{{ name }}</option>
-        {% endfor %}
-      </select>
+  <div id="dl-menu" class="dl-menuwrapper">
+    <button class="dl-trigger"></button>
+    <ul class="dl-menu">
+      <li class="facebook-icon">
+        <a href="{{ links.facebook }}" target="_blank">Facebook</a>
+      </li>
+      <li class="twitter-icon">
+        <a href="{{ links.twitter }}" target="_blank">Twitter</a>
+      </li>
+      <li class="mail-icon">
+        <a href="mailto:{{ links.email }}">feedback@lorelol.com</a>
+      </li>
+      <li>
+        <a href="#">{{ trans('system.language') }}</a>
+        <ul class="dl-submenu">
+          {% for region_code, name in regions %}
+            <li {% if region_code == region %} class="checked-icon" {% endif %}>
+              <a id="{{ region_code }}">{{ name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>

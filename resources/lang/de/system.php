@@ -6,5 +6,5 @@ return [
         'na' => 'Englisch',
     ],
     'search_term' => 'Suche Champions',
-    'feedback' => 'Feedback'
+    'language' => 'Sprache',
 ];
